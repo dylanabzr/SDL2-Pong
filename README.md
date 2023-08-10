@@ -2,6 +2,7 @@
 I recreated the game "Pong" using the SDL2 Library in C.
 
 A video of the game:
+
 ![gameplay](https://github.com/dylanabzr/SDL2-Pong/blob/main/gameplay.gif)
 
 How to play:
