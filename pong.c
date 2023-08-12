@@ -50,16 +50,16 @@ void windowLoop(SDL_Window *window){
               done = 1;
               break;
             case SDLK_w:
-              Player_1_Y -= 80;
+              Player_1_Y -= 65;
               break;
             case SDLK_s:
-              Player_1_Y += 80;
+              Player_1_Y += 65;
               break;
             case SDLK_UP:
-              Player_2_Y -= 80;
+              Player_2_Y -= 65;
               break;
             case SDLK_DOWN:
-              Player_2_Y += 80;
+              Player_2_Y += 65;
               break;  
           }
       }
@@ -70,7 +70,6 @@ void windowLoop(SDL_Window *window){
   SDL_DestroyRenderer(renderer);
 }
 
-
 void gameUI(){  
   SDL_Rect Player_1 = {20, Player_1_Y, 10, 120};
   SDL_Rect Player_2 = {1260, Player_2_Y, 10, 120};
@@ -78,12 +77,12 @@ void gameUI(){
   BallX += 7 * (x_status);
   BallY += 10 * (y_status);
   SDL_SetRenderDrawColor(renderer, 1, 1, 1, 1);
+  SDL_RenderFillRect(renderer, &Wall2);
+  SDL_RenderFillRect(renderer, &Wall1);
   SDL_RenderClear(renderer);
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_Rect center = {640, 0, 2, 720};
   SDL_Rect Ball = {BallX, BallY, 15, 15};
-  SDL_RenderFillRect(renderer, &Wall2);
-  SDL_RenderFillRect(renderer, &Wall1);
   SDL_RenderFillRect(renderer, &Ball);
   SDL_RenderFillRect(renderer, &center);
   SDL_RenderFillRect(renderer, &Player_1);
@@ -111,4 +110,3 @@ void ballCollision(int x, int y, const SDL_Rect *player1, const SDL_Rect *player
     Points_Player_2++;
   }
 }
-
