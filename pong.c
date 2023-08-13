@@ -6,8 +6,10 @@
 
 SDL_Renderer *renderer;
 
+int XMouse, YMouse;
+
 int Player_1_Y = 280, Player_2_Y = 280;
-short int y_status = 1, x_status = 1;
+short int y_status = 1, x_status = 1, bot_status = 1;
 int BallX = 640, BallY = 360;
 int Points_Player_1 =0, Points_Player_2 = 0;
 
@@ -48,18 +50,6 @@ void windowLoop(SDL_Window *window){
           switch(event.key.keysym.sym){
             case SDLK_ESCAPE:
               done = 1;
-              break;
-            case SDLK_w:
-              Player_1_Y -= 65;
-              break;
-            case SDLK_s:
-              Player_1_Y += 65;
-              break;
-            case SDLK_UP:
-              Player_2_Y -= 65;
-              break;
-            case SDLK_DOWN:
-              Player_2_Y += 65;
               break;  
           }
       }
@@ -71,10 +61,16 @@ void windowLoop(SDL_Window *window){
 }
 
 void gameUI(){  
+  SDL_GetMouseState(&XMouse, &YMouse);
+  if ((Player_1_Y >= 720) || (Player_1_Y <= 0)){
+    bot_status = bot_status * -1;
+  }
+  Player_1_Y += 10 * (bot_status);
+  Player_2_Y = YMouse;
   SDL_Rect Player_1 = {20, Player_1_Y, 10, 120};
   SDL_Rect Player_2 = {1260, Player_2_Y, 10, 120};
   ballCollision(BallX, BallY, &Player_1, &Player_2, &Wall1, &Wall2);
-  BallX += 7 * (x_status);
+  BallX += 10 * (x_status);
   BallY += 10 * (y_status);
   SDL_SetRenderDrawColor(renderer, 1, 1, 1, 1);
   SDL_RenderFillRect(renderer, &Wall2);
