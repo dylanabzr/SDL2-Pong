@@ -14,8 +14,8 @@ int BallX = 640, BallY = 360;
 int Points_Player_1 =0, Points_Player_2 = 0;
 
 SDL_Rect Ball, Player_1, Player_2;
-SDL_Rect Wall1 = {0, 0, 1280, 5};
-SDL_Rect Wall2 = {0, 715, 1280, 5};
+SDL_Rect Wall1 = {0, 0, 1500, 5};
+SDL_Rect Wall2 = {0, 715, 1500, 5};
 
 void windowLoop(SDL_Window *window);
 void gameUI();
