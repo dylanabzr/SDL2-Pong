@@ -70,7 +70,7 @@ void gameUI(){
   SDL_Rect Player_1 = {20, Player_1_Y, 10, 120};
   SDL_Rect Player_2 = {1260, Player_2_Y, 10, 120};
   ballCollision(BallX, BallY, &Player_1, &Player_2, &Wall1, &Wall2);
-  BallX += 12 * (x_status);
+  BallX += 14 * (x_status);
   BallY += 10 * (y_status);
   SDL_SetRenderDrawColor(renderer, 1, 1, 1, 1);
   SDL_RenderFillRect(renderer, &Wall2);
