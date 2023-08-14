@@ -9,7 +9,7 @@ SDL_Renderer *renderer;
 int XMouse, YMouse;
 
 int Player_1_Y = 280, Player_2_Y = 280;
-short int y_status = 1, x_status = 1, bot_status = 1;
+short int y_status = 1, x_status = 1, bot_status = 1, a = 1;
 int BallX = 640, BallY = 360;
 int Points_Player_1 =0, Points_Player_2 = 0;
 
@@ -26,6 +26,8 @@ int main(){
   SDL_Window *window = SDL_CreateWindow("Pong", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, 0);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
   windowLoop(window);
+  SDL_Quit();
+  return 0;
 }
 
 void windowLoop(SDL_Window *window){
