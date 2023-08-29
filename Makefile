@@ -1,3 +1,3 @@
 
   pong:
-		gcc pong.c -o pong -lSDL2
+		gcc ./src/*.c -o pong -lSDL2
